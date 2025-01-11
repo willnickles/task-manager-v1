@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'tasks',
     'django_extensions',
+    'django.contrib.sites',  # Required for Allauth
+    'allauth',
+    'allauth.account',  # For account management
+    'allauth.socialaccount',  # For social authentication (optional)
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager_v1.urls'
@@ -114,6 +120,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+SITE_ID = 1
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -124,3 +133,31 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # Default authentication backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
+)
+
+# URL to redirect to after successful login
+LOGIN_REDIRECT_URL = '/'
+
+# Required email verification method: options are 'mandatory', 'optional', or 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# Whether or not users can log in with their email address
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+
+# Required to enable signup (default is True)
+ACCOUNT_SIGNUP_ENABLED = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+

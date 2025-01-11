@@ -14,6 +14,9 @@ Frontend
     Angular CLI: For managing Angular application lifecycle (e.g., building and serving).
     Axios: For making HTTP requests to the backend.
     FormsModule: To enable two-way data binding using ngModel.
+
+
+
 Backend
 1. **Framework**:
     Django: A Python-based web framework for building the backend of the application.

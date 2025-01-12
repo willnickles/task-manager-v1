@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'tasks', component: TaskListComponent },
   { path: 'tasks/:id', component: TaskDetailComponent },
   { path: 'tasks/new', component: TaskFormComponent },
-  { path: 'tasks/edit/:id', component: TaskFormComponent },
+  {path: 'task/create', component: TaskFormComponent }, // Route to create task
+  { path: 'task/edit/:id', component: TaskFormComponent }, // Route to edit task
+  { path: 'task/details/:id', component: TaskDetailComponent }, // Make sure this is included
   { path: 'login', component: LoginComponent },
 ];
 

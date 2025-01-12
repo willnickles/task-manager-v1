@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';  // Import Router for navigation
 import { TaskService } from '../task.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class TaskListComponent implements OnInit {
   isLoading: boolean = false; // To track loading state
   errorMessage: string = ''; // To store any error messages
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token') || ''; // Fetch token from localStorage if available
@@ -44,5 +45,9 @@ export class TaskListComponent implements OnInit {
         console.error('Error deleting task:', error);
       }
     }
+  }
+
+  navigateToCreateTask(): void {
+    this.router.navigate(['/task/create']); // Navigate to task creation page
   }
 }

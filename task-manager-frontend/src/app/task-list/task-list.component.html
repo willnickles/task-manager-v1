@@ -1,17 +1,15 @@
 <h2>Task List</h2>
 
-<!-- Loading Spinner -->
-<div *ngIf="isLoading">Loading tasks...</div>
-
-<!-- Error Message -->
-<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+<!-- Button to go to Task Creation -->
+<button (click)="navigateToCreateTask()">Create Task</button>
 
 <!-- Task List -->
 <div *ngIf="!isLoading && tasks.length === 0">No tasks available.</div>
 
 <ul *ngIf="!isLoading && tasks.length > 0">
   <li *ngFor="let task of tasks">
-    <span>{{ task.name }}</span>
+    <span>{{ task.title }}</span>
     <button (click)="deleteTask(task.id)">Delete</button>
+    <a [routerLink]="['/task/details', task.id]">View Details</a> <!-- Add this link -->
   </li>
 </ul>

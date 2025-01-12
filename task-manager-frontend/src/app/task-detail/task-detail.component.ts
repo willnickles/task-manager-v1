@@ -16,12 +16,13 @@ export class TaskDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Get the task id from the route parameter
     const id = this.route.snapshot.paramMap.get('id');
     const token = localStorage.getItem('token') || ''; // Fetch token from localStorage
   
+    // Fetch the task details from the service
     this.taskService.getTaskDetail(Number(id), token).then((data) => {
       this.task = data;
     }).catch(error => console.error('Error fetching task detail:', error));
   }
-}  
-
+}

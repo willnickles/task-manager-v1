@@ -1,10 +1,38 @@
-<form (ngSubmit)="save()">
-    <label for="name">Task Name:</label>
-    <input type="text" id="name" [(ngModel)]="task.name" name="name" required>
-  
+<h2>{{ isEditing ? 'Edit Task' : 'Create Task' }}</h2>
+<form (ngSubmit)="save()" #taskForm="ngForm">
+  <div>
+    <label for="title">Task Title:</label> <!-- Change label to "Title" -->
+    <input
+      type="text"
+      id="title"
+      [(ngModel)]="task.title" 
+      name="title"
+      required
+      placeholder="Enter task title"
+    />
+  </div>
+
+  <div>
     <label for="description">Task Description:</label>
-    <textarea id="description" [(ngModel)]="task.description" name="description" required></textarea>
-  
-    <button type="submit">{{ isEditing ? 'Update Task' : 'Create Task' }}</button>
-  </form>
-  
+    <textarea
+      id="description"
+      [(ngModel)]="task.description"
+      name="description"
+      required
+      placeholder="Enter task description"
+    ></textarea>
+  </div>
+
+  <div>
+    <label for="completed">Completed:</label>
+    <input 
+      type="checkbox" 
+      id="completed" 
+      [(ngModel)]="task.completed" 
+      name="completed" />
+  </div>
+
+  <button type="submit" [disabled]="taskForm.invalid">
+    {{ isEditing ? 'Update Task' : 'Create Task' }}
+  </button>
+</form>

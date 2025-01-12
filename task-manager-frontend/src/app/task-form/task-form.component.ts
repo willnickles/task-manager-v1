@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  task = { name: '', description: '' }; // Bind form data to this object
+  task = { 
+    title: '', 
+    description: '', 
+    completed: false  // Add the completed field with a default value
+  }; 
   isEditing = false;
   taskId: number | null = null;
 
@@ -41,7 +45,9 @@ export class TaskFormComponent implements OnInit {
       // Create a new task
       this.taskService.createTask(this.task, token).then(() => {
         this.router.navigate(['/tasks']);
-      }).catch(error => console.error('Error creating task:', error));
+      }).catch(error => {
+        console.error('Error creating task:', error);
+      });
     }
   }
 }

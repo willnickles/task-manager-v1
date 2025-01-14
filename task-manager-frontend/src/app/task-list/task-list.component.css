@@ -1,22 +1,67 @@
-/* Style the task list */
+/* Center the entire container */
+.task-list-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center text and buttons inside container */
+}
+
+/* Header Styling */
+.task-list-container h2 {
+  color: #2d3e50;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Button to Create Task */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px; /* Add space below the button */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Task List */
 ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-  }
-  
-  /* Error message styling */
-  .error-message {
-    color: red;
-    font-weight: bold;
-  }
-  
-  /* Loading spinner styling */
-  .loading {
-    font-size: 16px;
-    color: #007bff;
-  }
-  
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li span {
+  font-weight: bold;
+  color: #2d3e50;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

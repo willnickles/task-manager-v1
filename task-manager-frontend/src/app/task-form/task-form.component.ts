@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common'; // Import Location service
 
 @Component({
   selector: 'app-task-form',
@@ -18,7 +19,8 @@ export class TaskFormComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
-    private router: Router
+    private router: Router,
+    private location: Location 
   ) {}
 
   ngOnInit(): void {
@@ -49,5 +51,9 @@ export class TaskFormComponent implements OnInit {
         console.error('Error creating task:', error);
       });
     }
+  }
+  // Go Back functionality
+  goBack(): void {
+    this.location.back();
   }
 }

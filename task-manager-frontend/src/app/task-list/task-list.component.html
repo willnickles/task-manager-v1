@@ -1,15 +1,17 @@
-<h2>Task List</h2>
+<div class="task-list-container">
+  <h2>Task Manager</h2>
 
-<!-- Button to go to Task Creation -->
-<button (click)="navigateToCreateTask()">Create Task</button>
+  <!-- Button to go to Task Creation -->
+  <button (click)="navigateToCreateTask()">Create Task</button>
 
-<!-- Task List -->
-<div *ngIf="!isLoading && tasks.length === 0">No tasks available.</div>
+  <!-- Task List -->
+  <div *ngIf="!isLoading && tasks.length === 0">No tasks available.</div>
 
-<ul *ngIf="!isLoading && tasks.length > 0">
-  <li *ngFor="let task of tasks">
-    <span>{{ task.title }}</span>
-    <button (click)="deleteTask(task.id)">Delete</button>
-    <a [routerLink]="['/task/details', task.id]">View Details</a> <!-- Add this link -->
-  </li>
-</ul>
+  <ul *ngIf="!isLoading && tasks.length > 0">
+    <li *ngFor="let task of tasks">
+      <span>{{ task.title }}</span>
+      <button (click)="deleteTask(task.id)">Delete</button>
+      <a [routerLink]="['/task/details', task.id]">View Details</a>
+    </li>
+  </ul>
+</div>

@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # Required for Allauth
     'allauth',
     'allauth.account',  # For account management
-    'allauth.socialaccount',  # For social authentication (optional)
+    'allauth.socialaccount', 
+    'corsheaders',
+    'rest_framework_simplejwt', # For social authentication (optional)
 
 ]
 
@@ -56,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager_v1.urls'
@@ -158,6 +161,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    
 }
+
+CORS_ALLOW_ALL_ORIGINS = True 
 
 

@@ -1,6 +1,8 @@
 # task-manager-v1
 First version for task manager using angular
-
+**HOW TO RUN:
+CD task_manager_v1  python3 manage.py runserver   
+CD task-manager-frontend ng serve  **
 Frontend
 1. **Framework:**
     Angular: A TypeScript-based frontend framework for building client-side applications.
